@@ -37,8 +37,10 @@ el[1].addEventListener("click",
 // js code for xo game
 let allFiled = document.querySelectorAll(".field");
 let end = document.querySelector(".end")
+let header = document.querySelector(".header")
 let endGame = document.querySelector("#endGame")
 let trun = "x";
+
 
 
 allFiled.forEach((div,inedx) => {
@@ -46,10 +48,14 @@ allFiled.forEach((div,inedx) => {
     if (trun=="x" && div.innerHTML==""){
       div.innerHTML=trun;
       trun = "o";
+      header.innerHTML="O"
+
       check();
     }else if (trun=="o" && div.innerHTML==""){
       div.innerHTML=trun;
       trun = "x";
+      header.innerHTML="X"
+
       check();
     }
   })
@@ -57,6 +63,8 @@ allFiled.forEach((div,inedx) => {
 /// 
 function gameOver(inedx) {
   end.style.transform="translateY(0)";
+  header.innerHTML=`The winner is ${allFiled[inedx].innerHTML}`
+
   setTimeout(function () {
     swal({
       title: "Good job",
