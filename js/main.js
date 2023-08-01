@@ -57,11 +57,14 @@ allFiled.forEach((div,inedx) => {
 /// 
 function gameOver(inedx) {
   end.style.transform="translateY(0)";
-  swal({
-    title: "Good job",
-    text: `The winner is ${allFiled[inedx].innerHTML}`,
-    button: "Aww yiss!",
-  });
+  setTimeout(function () {
+    swal({
+      title: "Good job",
+      text: `The winner is ${allFiled[inedx].innerHTML}`,
+      button: "Aww yiss!",
+    });
+  }, 600)
+
 }
 /// check function to determine whether the game is over
 function check(){
