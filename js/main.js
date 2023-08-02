@@ -74,6 +74,28 @@ function gameOver(inedx) {
 /// check function to determine whether the game is over
 function check() {
   if (
+    allFiled[0].innerHTML != "" &&
+    allFiled[1].innerHTML != "" &&
+    allFiled[2].innerHTML != "" &&
+    allFiled[3].innerHTML != "" &&
+    allFiled[4].innerHTML != "" &&
+    allFiled[5].innerHTML != "" &&
+    allFiled[6].innerHTML != "" &&
+    allFiled[7].innerHTML != "" &&
+    allFiled[8].innerHTML != ""
+  ) {
+    end.style.transform = "translateY(0)";
+    header.innerHTML = `No one wins`;
+
+    setTimeout(function () {
+      swal({
+        title: "Good job",
+        text: `NO one wins`,
+        button: "Aww yiss!",
+      });
+    }, 600);
+  }
+  if (
     allFiled[0].innerHTML == allFiled[1].innerHTML &&
     allFiled[1].innerHTML == allFiled[2].innerHTML &&
     allFiled[0].innerHTML != ""
@@ -122,28 +144,7 @@ function check() {
   ) {
     gameOver(2);
   }
-  if (
-    allFiled[0].innerHTML != "" &&
-    allFiled[1].innerHTML != "" &&
-    allFiled[2].innerHTML != "" &&
-    allFiled[3].innerHTML != "" &&
-    allFiled[4].innerHTML != "" &&
-    allFiled[5].innerHTML != "" &&
-    allFiled[6].innerHTML != "" &&
-    allFiled[7].innerHTML != "" &&
-    allFiled[8].innerHTML != ""&&allFiled[8].innerHTML=="x" && allFiled[8].innerHTML=="o"
-  ) {
-    end.style.transform = "translateY(0)";
-    header.innerHTML = `No one wins`;
-
-    setTimeout(function () {
-      swal({
-        title: "Good job",
-        text: `NO one wins`,
-        button: "Aww yiss!",
-      });
-    }, 600);
-  }
+  
 }
 endGame.addEventListener("click", function () {
   location.reload();
